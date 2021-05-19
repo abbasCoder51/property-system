@@ -32,8 +32,8 @@ class Base
     {
         $this->domainName = config('api.url');
         $this->apiKey = request()->has('apiKey') ? request()->api_key : $this->apiKey;
-        $this->pageNumber = request()->has('pageNumber') ? request()->pageNumber : $this->pageNumber;
-        $this->pageSize = request()->has('pageSize') ? request()->pageSize : $this->pageSize;
+        $this->pageNumber = request()->has('page.number') ? request()->get('page')['number'] : $this->pageNumber;
+        $this->pageSize = request()->has('page.size') ? request()->get('page')['size'] : $this->pageSize;
     }
 
     /**
