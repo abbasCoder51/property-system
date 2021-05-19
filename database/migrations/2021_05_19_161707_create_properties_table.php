@@ -30,7 +30,8 @@ class CreatePropertiesTable extends Migration
             $table->integer('price');
             $table->foreignId('property_type_id')->references('id')->on('property_types');
             $table->string('contract_type');
-            $table->timestamps();
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
     }
 
