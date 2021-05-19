@@ -16,7 +16,6 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->nullable();
-            $table->string();
             $table->foreignId('county_id')->references('id')->on('counties');
             $table->foreignId('country_id')->references('id')->on('countries');
             $table->foreignId('town_id')->references('id')->on('towns');
