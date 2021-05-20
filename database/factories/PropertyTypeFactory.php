@@ -40,7 +40,7 @@ class PropertyTypeFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->propertyTypes[$this->faker->numberBetween(0, count($this->propertyTypes))],
+            'title' => $this->propertyTypes[$this->faker->numberBetween(0, count($this->propertyTypes) - 1)],
             'description' => $this->faker->paragraph,
             'created_at' => $this->faker->dateTime,
             'updated_at' => $this->faker->dateTime
