@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('properties', 'PropertyController@index');
+Route::patch('properties/update', 'PropertyController@update');

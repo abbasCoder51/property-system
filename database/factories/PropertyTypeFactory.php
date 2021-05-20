@@ -15,6 +15,24 @@ class PropertyTypeFactory extends Factory
     protected $model = PropertyType::class;
 
     /**
+     * @var array $propertyTypes
+     */
+    private $propertyTypes = [
+        'Purpose Built Flat',
+        'Converted Flat',
+        'Studio Flat',
+        'Maisonettes',
+        'Bungalow',
+        'Cottage',
+        'Terrace House',
+        'Detached House',
+        'Detached House',
+        'Semi-detached House',
+        'End-of-terrace',
+        'Mansion'
+    ];
+
+    /**
      * Define the model's default state.
      *
      * @return array
@@ -22,7 +40,7 @@ class PropertyTypeFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->title,
+            'title' => $this->propertyTypes[$this->faker->numberBetween(0, count($this->propertyTypes))],
             'description' => $this->faker->paragraph,
             'created_at' => $this->faker->dateTime,
             'updated_at' => $this->faker->dateTime
