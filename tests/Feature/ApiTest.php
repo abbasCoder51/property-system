@@ -2,18 +2,29 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ApiTest extends TestCase
 {
-    /** @test */
-    public function a_json_response_is_received_from_properties_api_call()
-    {
-        $response = $this->get('/api/properties');
+    use WithFaker, RefreshDatabase;
 
-        $response->assertStatus(200);
-        $response->assertJson([
-            'data' => []
-        ]);
+    private string $apiKey = '3NLTTNlXsi6rBWl7nYGluOdkl2htFHug';
+
+    /** @test */
+    public function a_single_property_api_call_saves_data_into_database()
+    {
+        $this->get(sprintf('/api/properties?%s&%s&%s',
+            'page[number]=1',
+            'page[size]=1',
+            'api_key=' . $this->apiKey
+        ));
+
+        $this->assertDatabaseCount('counties', 1);
+        $this->assertDatabaseCount('countries', 1);
+        $this->assertDatabaseCount('towns', 1);
+        $this->assertDatabaseCount('property_types', 1);
+        $this->assertDatabaseCount('properties', 1);
     }
 }
