@@ -18,7 +18,7 @@ class CreatePropertyTypesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->dateTime('created_at');
-            $table->dateTime('updated_at');
+            $table->dateTime('updated_at')->nullable();
         });
     }
 
