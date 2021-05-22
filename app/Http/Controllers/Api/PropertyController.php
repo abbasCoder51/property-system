@@ -9,6 +9,8 @@ use App\Models\County;
 use App\Models\Property;
 use App\Models\PropertyType;
 use App\Models\Town;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class PropertyController extends Controller
 {
@@ -24,28 +26,14 @@ class PropertyController extends Controller
         $response = $this->model->getProperties();
 
         $propertyModel = new Property();
-        $propertyTypeModel = new PropertyType();
-        $countyModel = new County();
-        $countryModel = new Country();
-        $townModel = new Town();
 
         foreach ($response['data'] as $property) {
-            $county = $countyModel->create([
-                'name' => $property['county']
-            ]);
-            $country = $countryModel->create([
-                'name' => $property['country']
-            ]);
-            $town = $townModel->create([
-                'name' => $property['town']
-            ]);
-            $propertyType = $propertyTypeModel->create([
-                'id' => $property['property_type']['id'],
-                'title' => $property['property_type']['title'],
-                'description' => $property['property_type']['description'],
-                'created_at' => $property['property_type']['created_at'],
-                'updated_at' => $property['property_type']['updated_at']
-            ]);
+
+            $county = $this->populateCountyRecord($property['county']);
+            $country = $this->populateCountryRecord($property['country']);
+            $town = $this->populateTownRecord($property['town']);
+            $propertyType = $this->populatePropertyTypeRecord($property['property_type']);
+
             $propertyModel->create([
                 'uuid' => $property['uuid'],
                 'county_id' => $county->id,
@@ -69,5 +57,49 @@ class PropertyController extends Controller
         }
 
         return $response;
+    }
+
+    /**
+     * @param $name
+     */
+    private function populateCountyRecord($name)
+    {
+        return County::query()->where('name', $name)->updateOrCreate([
+            'name' => $name
+        ]);
+    }
+
+    /**
+     * @param $name
+     */
+    private function populateCountryRecord($name)
+    {
+        return Country::query()->where('name', $name)->updateOrCreate([
+            'name' => $name
+        ]);
+    }
+
+    /**
+     * @param $name
+     */
+    private function populateTownRecord($name)
+    {
+        return Town::query()->where('name', $name)->updateOrCreate([
+            'name' => $name
+        ]);
+    }
+
+    /**
+     * @param $propertyType
+     */
+    private function populatePropertyTypeRecord($propertyType)
+    {
+        return PropertyType::query()->where('id', $propertyType['id'])->updateOrCreate([
+            'id' => $propertyType['id'],
+            'title' => $propertyType['title'],
+            'description' => $propertyType['description'],
+            'created_at' => $propertyType['created_at'],
+            'updated_at' => $propertyType['updated_at']
+        ]);
     }
 }
