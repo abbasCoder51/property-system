@@ -42,6 +42,7 @@ class PropertyTypeFactory extends Factory
         return [
             'title' => $this->propertyTypes[$this->faker->numberBetween(0, count($this->propertyTypes) - 1)],
             'description' => $this->faker->paragraph,
+            'is_api_data' => 0,
             'created_at' => $this->faker->dateTime,
             'updated_at' => $this->faker->dateTime
         ];

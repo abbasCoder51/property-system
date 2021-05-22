@@ -42,6 +42,7 @@ class PropertyFactory extends Factory
             'price' => $this->faker->numberBetween(90000, 30000),
             'property_type_id' => PropertyType::factory()->create()->id,
             'contract_type' => ['rent', 'sale'][$this->faker->numberBetween(0,1)],
+            'is_api_data' => 0,
             'created_at' => $this->faker->dateTime,
             'updated_at' => $this->faker->dateTime
         ];

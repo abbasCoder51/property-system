@@ -17,6 +17,7 @@ class CreatePropertyTypesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->boolean('is_api_data')->default(0);
             $table->dateTime('created_at');
             $table->dateTime('updated_at')->nullable();
         });

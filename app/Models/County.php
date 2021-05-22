@@ -12,7 +12,8 @@ class County extends Model
     protected $table = 'counties';
 
     protected $fillable = [
-        'name'
+        'name',
+        'is_api_data'
     ];
 
     protected $casts = [

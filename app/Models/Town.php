@@ -12,7 +12,8 @@ class Town extends Model
     protected $table = 'towns';
 
     protected $fillable = [
-        'name'
+        'name',
+        'is_api_data'
     ];
 
     protected $casts = [

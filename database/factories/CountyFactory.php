@@ -22,7 +22,8 @@ class CountyFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name
+            'name' => $this->faker->name,
+            'is_api_data' => 0
         ];
     }
 }

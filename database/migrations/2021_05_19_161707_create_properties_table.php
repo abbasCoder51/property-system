@@ -31,6 +31,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('price');
             $table->foreignId('property_type_id')->constrained();
             $table->string('contract_type');
+            $table->boolean('is_api_data')->default(0);
             $table->dateTime('created_at');
             $table->dateTime('updated_at')->nullable();
         });

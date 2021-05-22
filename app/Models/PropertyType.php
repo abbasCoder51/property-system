@@ -17,6 +17,7 @@ class PropertyType extends Model
         'id',
         'title',
         'description',
+        'is_api_data',
         'created_at',
         'updated_at'
     ];

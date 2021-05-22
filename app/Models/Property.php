@@ -28,6 +28,7 @@ class Property extends Model
         'price',
         'property_type_id',
         'contract_type',
+        'is_api_data',
         'created_at',
         'updated_at'
     ];

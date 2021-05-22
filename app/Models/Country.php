@@ -12,7 +12,8 @@ class Country extends Model
     protected $table = 'countries';
 
     protected $fillable = [
-        'name'
+        'name',
+        'is_api_data'
     ];
 
     protected $casts = [

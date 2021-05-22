@@ -9,8 +9,6 @@ use App\Models\County;
 use App\Models\Property;
 use App\Models\PropertyType;
 use App\Models\Town;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 
 class PropertyController extends Controller
 {
@@ -51,6 +49,7 @@ class PropertyController extends Controller
                 'price' => $property['price'],
                 'property_type_id' => $propertyType->id,
                 'contract_type' => $property['type'],
+                'is_api_data' => 1,
                 'created_at' => $property['created_at'],
                 'updated_at' => $property['updated_at']
             ]);
@@ -65,7 +64,8 @@ class PropertyController extends Controller
     private function populateCountyRecord($name)
     {
         return County::query()->where('name', $name)->updateOrCreate([
-            'name' => $name
+            'name' => $name,
+            'is_api_data' => 1
         ]);
     }
 
@@ -75,7 +75,8 @@ class PropertyController extends Controller
     private function populateCountryRecord($name)
     {
         return Country::query()->where('name', $name)->updateOrCreate([
-            'name' => $name
+            'name' => $name,
+            'is_api_data' => 1
         ]);
     }
 
@@ -85,7 +86,8 @@ class PropertyController extends Controller
     private function populateTownRecord($name)
     {
         return Town::query()->where('name', $name)->updateOrCreate([
-            'name' => $name
+            'name' => $name,
+            'is_api_data' => 1
         ]);
     }
 
@@ -98,6 +100,7 @@ class PropertyController extends Controller
             'id' => $propertyType['id'],
             'title' => $propertyType['title'],
             'description' => $propertyType['description'],
+            'is_api_data' => 1,
             'created_at' => $propertyType['created_at'],
             'updated_at' => $propertyType['updated_at']
         ]);

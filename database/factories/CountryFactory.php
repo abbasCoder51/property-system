@@ -22,7 +22,8 @@ class CountryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->country
+            'name' => $this->faker->country,
+            'is_api_data' => 0
         ];
     }
 }
