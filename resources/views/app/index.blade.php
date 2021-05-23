@@ -1,41 +1,47 @@
 @extends('layouts.app')
 
 @section('body_content')
-    <div class="relative min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            <a href="" class="text-sm text-gray-700 underline">Admin</a>
+    <div class="container mt-5">
+        <div class="row">
+            <h1>Property API System</h1>
         </div>
-
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                <h1>Property API System</h1>
-            </div>
-
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <div class="p-6">
-                        <form id="fetch_properties" action="/" method="post" class="form-group">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <label for="page_number">Page Number</label>
-                                <input type="text" name="page_number" class="form-control" placeholder="Enter Page Number">
-                            </div>
-                            <div class="form-group">
-                                <label>Page Size</label>
-                                <input type="text" name="page_size" class="form-control" placeholder="Enter Page Size">
-                            </div>
-                            <button type="submit" class="btn btn-info pull-right">Fetch</button>
-                        </form>
-{{--                        Page Number <input type="text">--}}
-{{--                        Page Size <input type="text">--}}
-                    </div>
+        <form id="fetch_properties_form"  class="row mt-3 mb-3">
+            <div class="row">
+                <div class="col-4">
+                    <label class="w-100">
+                        <input type="text" name="page[number]" class="form-control" placeholder="Enter Page Number (default 1)">
+                    </label>
+                </div>
+                <div class="col-4">
+                    <label class="w-100">
+                        <input type="text" name="page[size]" class="form-control" placeholder="Enter Page Size (default 30)">
+                    </label>
+                </div>
+                <div class="col-2">
+                    <button id="fetch_button" type="submit" class="btn btn-primary">Fetch</button>
                 </div>
             </div>
-
-            <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                </div>
+        </form>
+    </div>
+    <div class="container">
+        <div id="api_fetched_data_message" class="hidden alert alert-success"></div>
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="table-responsive">
+                <table id="api_fetched_data_table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#UUID</th>
+                            <th scope="col">Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center no-data-message">
+                            <td colspan="2">No Data Retrieved</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

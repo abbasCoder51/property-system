@@ -11,7 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.copy('resources/css/app.css', 'public/css');
+mix.copy('resources/js/app.js', 'public/js');
+mix.copyDirectory('node_modules/bootstrap/dist', 'public/vendor/bootstrap');
+mix.copyDirectory('node_modules/jquery/dist', 'public/vendor/jquery');
+mix.copyDirectory('node_modules/@fortawesome/fontawesome-free', 'public/vendor/fontawesome');
