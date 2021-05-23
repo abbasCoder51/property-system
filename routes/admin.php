@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return redirect('admin/properties');
+});
 Route::resource('properties', 'PropertyController');
