@@ -47,7 +47,7 @@
                                                     <td>{{ $property->country->name }}</td>
                                                     <td>{{ $property->propertyType->title }}</td>
                                                     <td>{{ $property->contract_type }}</td>
-                                                    <td>{{ $property->price }}</td>
+                                                    <td>{{ $property->formatPrice }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.properties.show', $property->id) }}"
                                                            class="btn btn-info"><i class="fa fa-eye"></i></a>

@@ -57,4 +57,9 @@ class Property extends Model
     {
         return $this->belongsTo(PropertyType::class);
     }
+
+    public function getFormatPriceAttribute()
+    {
+        return "$" . number_format($this->price, 0, '', ',');
+    }
 }
