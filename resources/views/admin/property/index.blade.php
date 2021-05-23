@@ -44,7 +44,18 @@
                                                     <td>{{ $property->propertyType->title }}</td>
                                                     <td>{{ $property->contract_type }}</td>
                                                     <td>{{ $property->price }}</td>
-                                                    <td></td>
+                                                    <td>
+                                                        <a href="{{ route('admin.properties.show', $property->id) }}"
+                                                           class="btn btn-info"><i class="fa fa-eye"></i></a>
+                                                        <a href="{{ route('admin.properties.edit', $property->id) }}"
+                                                           class="btn btn-info"><i class="fa fa-pen"></i></a>
+                                                        <form action="{{ route('admin.properties.destroy', $property->id) }}" class="d-inline">
+                                                            {{ csrf_field() }}
+                                                            <button type="submit" class="btn btn-danger">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @empty
                                                 <tr>
