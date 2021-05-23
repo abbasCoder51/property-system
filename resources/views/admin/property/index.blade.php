@@ -37,7 +37,11 @@
                                         <tbody>
                                             @forelse($properties as $index => $property)
                                                 <tr>
-                                                    <td>{{ $property->id }}</td>
+                                                    <td>{{ $property->id }}
+                                                        <span class="text-white badge bg-{{ $property->is_api_data ? "primary" : "secondary" }}">
+                                                            {{ $property->is_api_data ? "Api" : "Admin" }}
+                                                        </span>
+                                                    </td>
                                                     <td>{{ $property->county->name }}</td>
                                                     <td>{{ $property->town->name }}</td>
                                                     <td>{{ $property->country->name }}</td>
