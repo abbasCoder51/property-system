@@ -7,15 +7,42 @@
                 class="fas fa-plus fa-sm text-white-50"></i> Create Properties</a>
     </div>
 
+    @include('partials.results')
+
     <div class="row">
         <div class="col-12">
             <div class="card shadow mb-4">
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Overview</h6>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
+
+                        @component('components.filter')
+                            <div class="form-group d-flex">
+                                <div class="col-sm-3">
+                                    <label for="county" class="control-label">County</label>
+                                    <input type="text" id="county" name="county" class="form-control" value="{{ Request::input('county') }}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="country" class="control-label">Country</label>
+                                    <input type="text" id="country" name="country" class="form-control" value="{{ Request::input('country') }}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="town" class="control-label">Town</label>
+                                    <input type="text" id="town" name="town" class="form-control" value="{{ Request::input('town') }}">
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="data_source" class="control-label">Data Source</label>
+                                    <select name="data_source" id="data_source" class="form-control">
+                                        <option value="" {{ Request::get('data_source') == null ? "selected" : "" }}>All</option>
+                                        <option value="1" {{ Request::get('data_source') == 1 ? "selected" : "" }}>Api</option>
+                                        <option value="0" {{ Request::get('data_source') == 0 && Request::get('data_source') != null ? "selected" : "" }}>Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                        @endcomponent
+
                         <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -63,7 +90,7 @@
                                                 </tr>
                                             @empty
                                                 <tr>
-                                                    <th colspan="8"></th>
+                                                    <td colspan="8" class="text-center">No Results Found</td>
                                                 </tr>
                                             @endforelse
                                         </tbody>
