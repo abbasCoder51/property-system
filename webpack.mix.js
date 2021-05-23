@@ -16,3 +16,5 @@ mix.copy('resources/js/app.js', 'public/js');
 mix.copyDirectory('node_modules/bootstrap/dist', 'public/vendor/bootstrap');
 mix.copyDirectory('node_modules/jquery/dist', 'public/vendor/jquery');
 mix.copyDirectory('node_modules/@fortawesome/fontawesome-free', 'public/vendor/fontawesome');
+mix.copyDirectory("node_modules/startbootstrap-sb-admin-2/css", "public/vendor/startbootstrap-sb-admin-2/css");
+mix.copyDirectory("node_modules/startbootstrap-sb-admin-2/js", "public/vendor/startbootstrap-sb-admin-2/js");
