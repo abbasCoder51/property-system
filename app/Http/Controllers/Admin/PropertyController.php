@@ -39,4 +39,10 @@ class PropertyController extends Controller
         return view('admin.property.index')
             ->with('properties', $properties);
     }
+
+    public function show(Property $property)
+    {
+        return view('admin.property.show')
+            ->with('property', $property);
+    }
 }

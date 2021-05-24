@@ -15,6 +15,7 @@ class CreatePropertyTypesTable extends Migration
     {
         Schema::create('property_types', function (Blueprint $table) {
             $table->id();
+            $table->integer('property_type_id');
             $table->string('title');
             $table->text('description');
             $table->boolean('is_api_data')->default(0);

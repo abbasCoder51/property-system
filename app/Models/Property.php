@@ -55,7 +55,7 @@ class Property extends Model
 
     public function propertyType()
     {
-        return $this->belongsTo(PropertyType::class);
+        return $this->belongsTo(PropertyType::class, 'property_type_id');
     }
 
     public function getFormatPriceAttribute()

@@ -9,12 +9,10 @@ class PropertyType extends Model
 {
     use HasFactory;
 
-    public $incrementing = false;
-
     protected $table = 'property_types';
 
     protected $fillable = [
-        'id',
+        'property_type_id',
         'title',
         'description',
         'is_api_data',

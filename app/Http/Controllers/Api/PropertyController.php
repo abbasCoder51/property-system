@@ -96,8 +96,8 @@ class PropertyController extends Controller
      */
     private function populatePropertyTypeRecord($propertyType)
     {
-        return PropertyType::query()->where('id', $propertyType['id'])->updateOrCreate([
-            'id' => $propertyType['id'],
+        return PropertyType::query()->where('property_type_id', $propertyType['id'])->updateOrCreate([
+            'property_type_id' => $propertyType['id'],
             'title' => $propertyType['title'],
             'description' => $propertyType['description'],
             'is_api_data' => 1,

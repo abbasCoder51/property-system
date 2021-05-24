@@ -10,7 +10,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('admin.properties.index') }}">
             <i class="fas fa-fw fa-cog"></i>
             <span>Properties</span>
         </a>

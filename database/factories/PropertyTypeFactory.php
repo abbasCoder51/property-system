@@ -39,7 +39,10 @@ class PropertyTypeFactory extends Factory
      */
     public function definition()
     {
+        $id = 1;
+
         return [
+            'property_type_id' => $id++,
             'title' => $this->propertyTypes[$this->faker->numberBetween(0, count($this->propertyTypes) - 1)],
             'description' => $this->faker->paragraph,
             'is_api_data' => 0,

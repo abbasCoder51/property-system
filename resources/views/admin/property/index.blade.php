@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Property')
+
 @section('body_content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Properties</h1>
@@ -79,9 +81,10 @@
                                                         <a href="{{ route('admin.properties.show', $property->id) }}"
                                                            class="btn btn-info"><i class="fa fa-eye"></i></a>
                                                         <a href="{{ route('admin.properties.edit', $property->id) }}"
-                                                           class="btn btn-info"><i class="fa fa-pen"></i></a>
-                                                        <form action="{{ route('admin.properties.destroy', $property->id) }}" class="d-inline">
+                                                           class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                                                        <form action="{{ route('admin.properties.destroy', $property->id) }}" method="POST" class="d-inline">
                                                             {{ csrf_field() }}
+                                                            {{ method_field('DELETE') }}
                                                             <button type="submit" class="btn btn-danger">
                                                                 <i class="fa fa-trash"></i>
                                                             </button>
