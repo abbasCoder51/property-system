@@ -32,7 +32,10 @@
     <textarea name="description" id="description"
               class="form-control" rows="7">{{ old('description', isset($property) ? $property->description : '') }}</textarea>
 </div>
-<!-- Image Upload -->
+<div class="form-group">
+    <label for="image_upload">Image Upload</label>
+    <input type="file" name="image_upload" id="image_upload" class="form-control">
+</div>
 <div class="form-group">
     <div class="row">
         <div class="col">
