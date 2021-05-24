@@ -45,4 +45,12 @@ class PropertyController extends Controller
         return view('admin.property.show')
             ->with('property', $property);
     }
+
+    public function destroy(Property $property)
+    {
+        $property->delete();
+
+        return redirect()->route('admin.properties.index')
+            ->with('success', 'Delete Property - ' . $property->id);
+    }
 }
