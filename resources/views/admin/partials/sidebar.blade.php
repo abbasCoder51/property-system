@@ -16,5 +16,33 @@
         </a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.countries.index') }}">
+            <i class="fas fa-fw fa-globe"></i>
+            <span>Countries</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.counties.index') }}">
+            <i class="fas fa-fw fa-leaf"></i>
+            <span>Counties</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.property-types.index') }}">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Property Types</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.towns.index') }}">
+            <i class="fas fa-fw fa-building"></i>
+            <span>Towns</span>
+        </a>
+    </li>
+
     <hr class="sidebar-divider">
 </ul>

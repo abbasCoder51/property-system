@@ -13,6 +13,7 @@ class Property extends Model
 
     protected $fillable = [
         'uuid',
+        'postcode',
         'county_id',
         'country_id',
         'town_id',
@@ -55,7 +56,7 @@ class Property extends Model
 
     public function propertyType()
     {
-        return $this->belongsTo(PropertyType::class, 'property_type_id');
+        return $this->belongsTo(PropertyType::class, 'property_type_id', 'id');
     }
 
     public function getFormatPriceAttribute()

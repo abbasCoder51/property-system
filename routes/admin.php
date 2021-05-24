@@ -17,3 +17,7 @@ Route::get('/', function () {
     return redirect('admin/properties');
 });
 Route::resource('properties', 'PropertyController');
+Route::resource('countries', 'CountryController')->only(['index', 'show']);
+Route::resource('counties', 'CountyController')->only(['index', 'show']);
+Route::resource('property-types', 'PropertyTypeController')->only(['index', 'show']);
+Route::resource('towns', 'TownController')->only(['index', 'show']);

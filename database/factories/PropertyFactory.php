@@ -30,6 +30,7 @@ class PropertyFactory extends Factory
             'county_id' => County::factory()->create()->id,
             'country_id' => Country::factory()->create()->id,
             'town_id' => Town::factory()->create()->id,
+            'postcode' => $this->faker->postcode,
             'description' => $this->faker->paragraph,
             'full_details_url' => $this->faker->url,
             'displayable_address' => $this->faker->address,

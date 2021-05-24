@@ -19,13 +19,14 @@ class CreatePropertiesTable extends Migration
             $table->foreignId('county_id')->constrained();
             $table->foreignId('country_id')->constrained();
             $table->foreignId('town_id')->constrained();
+            $table->string('postcode')->nullable();
             $table->text('description');
-            $table->string('full_details_url');
+            $table->string('full_details_url')->nullable();
             $table->string('displayable_address');
             $table->string('image_url');
             $table->string('thumbnail_url');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->integer('number_of_bedrooms');
             $table->integer('number_of_bathrooms');
             $table->integer('price');

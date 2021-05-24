@@ -3,6 +3,11 @@
 @section('title', 'Property - ' . $property->id)
 
 @section('body_content')
+    @component('components.breadcrumb')
+        <li class="breadcrumb-item"><a href="{{ route('admin.properties.index') }}">Properties</a></li>
+        <li class="breadcrumb-item active">{{ $property->id }}</li>
+    @endcomponent
+
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Properties - {{ $property->id }}</h1>
         <div>

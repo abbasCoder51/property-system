@@ -2,6 +2,11 @@
 <div class="form-group">
     <div class="row">
         <div class="col">
+            <label for="town">Town</label>
+            <input name="town" id="town" class="form-control" type="text"
+                   value="{{ old('town', isset($property) ? $property->town->name : '') }}">
+        </div>
+        <div class="col">
             <label for="county">County</label>
             <input name="county" id="county" class="form-control" type="text"
                    value="{{ old('county', isset($property) ? $property->county->name : '') }}">
@@ -35,6 +40,14 @@
 <div class="form-group">
     <label for="image_upload">Image Upload</label>
     <input type="file" name="image_upload" id="image_upload" class="form-control">
+    <p class="small mt-2">
+    @if(isset($property) && $property->image_url)
+        <strong>Image URL:</strong> {{ $property->image_url }}<br>
+    @endif
+    @if(isset($property) && $property->thumbnail_url)
+        <strong>Thumbnail URL:</strong> {{ $property->thumbnail_url }}
+        @endif
+    </p>
 </div>
 <div class="form-group">
     <div class="row">
