@@ -7,8 +7,8 @@
         <h1 class="h3 mb-0 text-gray-800">Properties - {{ $property->id }}</h1>
         <div>
             <a href="{{ route('admin.properties.edit', $property->id) }}"
-               class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm">
-                <i class="fas fa-eye fa-sm text-white-50"></i> Edit Property</a>
+               class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+                <i class="fas fa-pen fa-sm text-white-50"></i> Edit Property</a>
             <form action="{{ route('admin.properties.destroy', $property->id) }}" method="POST" class="d-sm-inline-block">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}

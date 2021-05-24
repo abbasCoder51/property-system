@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Property;
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -44,6 +45,15 @@ class PropertyController extends Controller
     {
         return view('admin.property.show')
             ->with('property', $property);
+    }
+
+    public function edit(Property $property)
+    {
+        $propertyTypes = PropertyType::query()->get();
+
+        return view('admin.property.edit')
+            ->with('property', $property)
+            ->with('propertyTypes', $propertyTypes);
     }
 
     public function destroy(Property $property)

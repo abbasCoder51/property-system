@@ -28,6 +28,15 @@ class AdminTest extends TestCase
     }
 
     /** @test */
+    public function can_see_property_edit_page()
+    {
+        $property = Property::factory()->create();
+
+        $response = $this->get('/admin/properties/' . $property->id . '/edit');
+        $response->assertStatus(200);
+    }
+
+    /** @test */
     public function can_delete_a_single_property()
     {
         $property = Property::factory()->create();
